@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <h2 class="mb-5 ml-5">
+    <fa name="users"></fa>packages list
+  </h2>
+
+  <div class="alert alert-warning" *ngIf="!packages || packages.length==0">
+    <fa name="exclamation-triangle"></fa> Records could not be found or loaded
+  </div>
+
+  <div class="row" *ngIf="packages && packages.length>0">
+    <div class="col-lg-2 ml-1 mb-1" *ngFor="let c of packages">
+      <!-- <div class="card" (mouseover)="cf.hidden=false" (mouseleave)="cf.hidden=true"> -->
+        <!-- <img class="card-img-top" [src]="c.gender=='MALE'?gentLogo:ladyLogo" /> -->
+        <img class="card-img-top" [src]="wifiLogo" /> 
+        <div class="card-body">
+          <p class="card-text"><br>
+                   <strong>{{c.title}}</strong> 
+            <br /> {{c.net}} MBPS
+            <br /> {{c.maxusage}} GB
+            <br /> Rs. {{c.cost}} /month
+          </p>
+        </div>
+        <div class="card-footer"  #cf>
+          <div class="btn-group">
+            <a routerLink="/editContact/{{c.title}}" class="btn"> APPLY 
+              <fa name="new"></fa>
+            </a>
+          </div>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
